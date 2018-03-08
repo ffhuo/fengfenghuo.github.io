@@ -3,7 +3,7 @@
 * [Introduction](README.md)
 * [概念](chapter1.md)
 * [关键技术](guan-jian-ji-zhu.md)
-  * P2P动态组网
+  * [P2P动态组网](guan-jian-ji-zhu/p2pdong-tai-zu-wang.md)
   * 哈希函数
   * 非对称加密算法
   * 共识机制
