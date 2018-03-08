@@ -4,7 +4,7 @@
 * [概念](chapter1.md)
 * [关键技术](guan-jian-ji-zhu.md)
   * [P2P动态组网](guan-jian-ji-zhu/p2pdong-tai-zu-wang.md)
-  * 哈希函数
+  * [哈希函数](guan-jian-ji-zhu/ha-xi-han-shu.md)
   * 非对称加密算法
   * 共识机制
   * 智能合约
@@ -12,8 +12,8 @@
   * [数据层](ji-chu-jia-gou/shu-ju-ceng.md)
     * 数据区块
     * 链式结构
-    * 时间戳
-    * 哈希函数
+    * [时间戳](ji-chu-jia-gou/shu-ju-ceng/shi-jian-chuo.md)
+    * [哈希函数](ji-chu-jia-gou/shu-ju-ceng/ha-xi-han-shu.md)
     * Merkle树
     * 非对称加密
   * 网络层
