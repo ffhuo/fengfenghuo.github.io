@@ -22,7 +22,18 @@
   * 可编程
   * 安全可信
   * 准匿名性
-* [产业生态链](chan-ye-sheng-tai-lian.md)
-  * 开源社区
-  * 产业联盟
+* [应用案例](ying-yong.md)
+  * 金融应用
+  * 企业应用
+  * 政府应用
+  * 跨行业应用
+* [行业现状](xing-ye-xian-zhuang.md)
+  * [三层产业](xing-ye-xian-zhuang/san-ceng-chan-ye/san-ceng-chan-ye.md)
+    * 底层技术及基础设施层
+    * 通用应用及技术拓展层
+    * 垂直行业应用层
+  * [存在问题](xing-ye-xian-zhuang/san-ceng-chan-ye/cun-zai-wen-ti.md)
+    * 技术问题
+    * 应用问题
+    * 监管问题
 
