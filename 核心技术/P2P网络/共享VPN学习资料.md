@@ -3,7 +3,7 @@
 ## 参考资料
 - [xkcptun](xkcptun.md)
 - [ShadowSocks](ShadowSocks.md)
-- [NAT](NAT学习资料)
+- [NAT](NAT穿透原理.md)
 
 ## 简单原理
 内网穿透具有几种标准RFC方法，STUN协议/服务器可进行P2P的直连穿透，而TURN协议/服务器可作为中间人（relay）转发数据进行穿透，此时会消耗服务器资源。ICE协议包含了STUN/TURN，在使用STUN穿透失败的情况下，为了保证成功连接，使用TURN协议进行转发。我们项目中也使用ICE协议进行穿透。
