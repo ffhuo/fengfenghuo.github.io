@@ -56,7 +56,7 @@ Bech32的优点包括：
 - checksum校验算法更加优化
 - 对二维码支持的更好
 
-![ASKCoin地址](media/Askcoin白皮书-Askcoin地址.png)
+![ASKCoin地址](media/Askcoin白皮书-ASKCoin地址.png)
 
 ## 3 架构设计
 
@@ -95,7 +95,7 @@ Askcoin平台在未来将建立平台内部的交易市场。实现ASK和BTC和E
 内部交易市场会成为Askcoin平台的一项创新，用户可以通过Askcoin客户端买卖ASK代币，并可以使用ASK自由兑换BTC和ETH，这就类似一个精简版的B网（bittrex.com）或者P网（poloniex.com）的交易所功能。ASK内部交易市场计划既不采用传统的中心化解决方案实现，也不采用类似cosmos[18]和polkadot[19]等项目提出的跨链平台的方案。而是通过让ASK成为BTC、ETH网络的侧链实现直接跨链交易的功能。Askcoin认为采用侧链的实现方案更加适合Askcoin的业务场景，实现ASK和BTC以及ETH的内部可转换将会是Askcoin平台的一项便捷功能。
 
 Askcoin网络将使用侧链技术连接到比特币网络和以太坊网络。而Askcoin Hub将成为比特币网络和以太坊网络的轻客户端，并通过使用类似PBFT/Paxos/Raft这种基于信任网络的共识协议来提交比特币网络和以太坊网络的区块头，从而连接到比特币网络和以太网网络。
-![Askcoin内部交易所](media/AskCoin白皮书-Askcoin内部交易所.png)
+![Askcoin内部交易所](media/Askcoin白皮书-Askcoin内部交易所.png)
 
 ## 6 Askcoin 交易类型
 
@@ -142,7 +142,7 @@ Askcoin 平台的目标是为问答类型的系统实现通用支付平台，在
 
 同时 Askcoin 会发布官方的 Askcoin 钱包(包括安卓平台和 iOS 平台)，钱包既能完成基础的转账功能同时也是集成了问答功能的ASK区块链技术社区客戶端。使用者可以在社区上提出∕解答区块链技术问题，并完成ASK代币的支付和转账。同时钱包还集成了以ASK为中心的内部交易所， 用戶可以方便的进行ASK和 BTC、ETH 等数字货币的交易和转换。
 Askcoin 的生态系统如下图所示:
-![Askcoin的生态系统](media/AskCoin白皮书-Askcoin生态系统.png)
+![Askcoin的生态系统](media/Askcoin白皮书-Askcoin的生态系统.png)
 
 ## 参考文献
 
