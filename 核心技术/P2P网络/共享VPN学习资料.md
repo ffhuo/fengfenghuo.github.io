@@ -19,7 +19,7 @@
 ## PJNATH
 跨平台ICE穿透库 PJNATH
 属于PJSIP项目的一个子模块：
-https://github.com/pjsip/pjproject/tree/master/pjnath
+<https://github.com/pjsip/pjproject/tree/master/pjnath>
 [文档](http://www.pjsip.org/pjnath/docs/html/)
 [demo的详细说明](http://www.pjsip.org/pjnath/docs/html/ice_demo_sample.htm)
 
