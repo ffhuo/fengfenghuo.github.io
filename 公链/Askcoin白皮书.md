@@ -58,7 +58,7 @@ Bech32的优点包括：
 - checksum校验算法更加优化
 - 对二维码支持的更好
 
-![ASKCoin地址](media/Askcoin白皮书-ASKCoin地址.png)
+![Askcoin地址](media/Askcoin白皮书-Askcoin地址.png)
 
 ## 3 架构设计
 

@@ -1,24 +1,28 @@
 # BTC-Relay与RootStock侧链技术对比
+
 自 2009 年比特币系统的推出以来，人们对去中心化加密货币的潜力有了极大的兴趣。但与此同时，对已达成共识的比特币系统关键部分实施变更，则必须非常保守地来处理。这导致与其他互联网协议相比，比特币系统更难于适应新需求和采纳新创新。因此侧链技术被提出来：实现比特币和其他数字资产在多个区块链间的转移。
 
 下面总结比较两种现在比较热门的侧链技术。
 
 ## 1.BTC-Relay侧链原理
+
 由ConsenSys团队推出BTC Relay被认为是区块链上的第一个侧链， BTC Relay项目是在以太坊基金会之下诞生并成长起来的，BTC Relay其主要原理是BTC Relay把以太坊网络与比特币网络以一种安全去中心化的方式连接起来。BTC Relay通过使用以太坊的智能合约功能可以允许用户在以太坊区块链上验证比特币交易。侧链机制不仅允许用户将交易发送到其他的地址或账户，还可以发送到其他的区块链。BTC Relay使用区块头创建一种小型版本的比特币区块链，以太坊DApp开发者可以从智能合约向BTC Relay进行API调用来验证比特币网络活动。BTC Relay进行了跨区块链通信的有意义的尝试，打开了不同区块链交流的通道。其主要示意图如下：
 ![BTC-Relay逻辑](media/BTC-Relay与RootStock侧链技术对比-BTC-Relay逻辑.png)
 
-
 ### 1.1 BTC-Relay功能
+
 > * 验证比特币的交易
 > * 传递Bitcoin交易到以太坊智能合约
 > * 存储Bitcoin区块头部
 > * 检查智能合约内部最新的Bitcoin块信息
 
 ### 1.2 BTC-Relay组成
+
 > * 带有Bitcoin SPV钱包功能的以太坊智能合约
 > * Relayers社区成员：Relayers为BTC Relay提供新的比特币区块头（header），当交易在区块链进行验证或者区块头被检索的时候，Relayer会获得一笔手续费作为奖励，Relayer提交区块头的这种循环——然后处理比特币支付和奖励Relayer手续费的应用程序——使系统能够自立和自治
 
 ### 1.3 BTC-Relay使用场景举例
+
 1. Alice和Bob同意使用BTCSwap合约来进行交易，Alice要买Bob的eth，Bob把他的 eth发送到BTCSwap合约
 2. Alice向Bob发送bitcoin，她希望BTCSwap这个合约能知道这件事以便BTCSwap合约可以释放Bob之前的eth
 3. Alice通过bitcoin的交易信息以及BTCSwap合约地址来调用btcrelay.relayTx()，btcrelay验证这笔交易通过后就触发BTCSwap合约里面的processTransaction方法
@@ -28,7 +32,6 @@
 大致流程图如下：
 ![BTC-Relay流程图](media/BTC-Relay与RootStock侧链技术对比-BTC-Relay流程图.png)
 
-
 ### 1.4 BTC-Relay侧链总结
 
 BTC Relay采用了智能合约内嵌Bitcoin SPV的原理来允许以太用户可以用Bitcoin进行交易的目的，合约里面存储了另一个“小型的Bitcoin区块链”，因此也称为以太坊的一条侧链。从BTC Relay的官网以及github互动来看，这个项目应该已经有比较长的时间没有更新了，总体开看，这个项目不同于其他利用类似双向锚定原理的侧链，直接利用以太坊的智能合约实现，原理上比较容易理解，但个人认为其存在以下几个问题：
@@ -36,13 +39,11 @@ BTC Relay采用了智能合约内嵌Bitcoin SPV的原理来允许以太用户可
 依靠社区成员Relayers来维护这个合约的成本较高（手续费太高）
 社区成员Relayers活跃度太低，从其mainnet来看，现在只有单一的Relayers
 内部智能合约体积膨胀问题
- 
 
 ## 2.RootStock侧链实现原理
 
 RootStock 是一个建立在比特币区块链上的智能合约分布式平台。它的目标是将复杂的智能合约实施为一个侧链，为核心比特币网络增加价值和功能。RootStock实现了以太坊虚拟机的一个改进版本，它将作为比特币的一个侧链，使用了一种可转换为比特币的代币作为智能合约的“燃料”，其原理示意图如下：
 ![RootStock原理](media/BTC-Relay与RootStock侧链技术对比-RootStock原理.png)
-
 
 根链和以太坊在功能上是高度重合的，它们都是一个点对点的分布式计算网络嘛，根链没有发行任何代币，它是和比特币一起挖矿的，叫联合挖矿。
 
@@ -64,4 +65,3 @@ RSK平台的安全性取决于参与联合挖矿的数量和联邦成员的数�
 2. 兼容以太坊虚拟机
 3. RSK智能合约执行成本比ETH少15%
 4. RSK测试网gas在15tps以内
-
