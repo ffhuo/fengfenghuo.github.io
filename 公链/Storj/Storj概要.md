@@ -1,6 +1,6 @@
 # Storj概述
 
-# 概述
+## 概述
 
 - 官方网站：<https://storj.io/>
 - 白皮书: <https://storj.io/storj.pdf>
@@ -17,7 +17,7 @@
 
 - **Metadisk**
   拖放文件托管网页应用
-  
+
   [Metadisk白皮书](Storj-Metadisk-白皮书.md)
 
 - **DriveShare**
