@@ -15,4 +15,6 @@ MediLedger项目已经得到了国际供应链咨询组织LinkLab的支持，并
 
 - LinkLab 支持
 
-摩根大通的企业级区块链平台Quorum
+## 开发平台
+
+- [摩根大通 Quorum](../行业-BAAS/Quorum.md)

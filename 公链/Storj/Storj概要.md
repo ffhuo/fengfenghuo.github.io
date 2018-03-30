@@ -11,6 +11,17 @@
 - 合约地址: 0xb64ef51c888972c908cfacf59b47c1afbc0ab8ac
 - 区块链浏览器：<https://etherscan.io/token/Storj>
 
+# 商业优势
+
+- 分布式存储的价格优势
+
+  Storj跟亚马逊的S3和微软Azure对比
+
+> Storj: \$0.015 GB/月
+> S3:    \$0.023 GB/月
+> Azue:  \$0.030 GB/月
+
+
 ## 项目列表
 
 项目设计为一些列产品目标的集合
@@ -22,3 +33,7 @@
 
 - **DriveShare**
   出租硬盘空间
+
+# 其他
+
+- Storj提供第一年25G的免费空间。申请地址：<https://app.storj.io/signup>

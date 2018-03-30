@@ -14,7 +14,7 @@
 
 在随后的章节中，我们要讨论选择两笔交易予以接受纳入系统的算法，用于衡量整体交易的验证算法（第 3 节，尤其是 3.1 节），以及可能会受到的攻击情况（第 4 节）。另外，如果读者对文中的一些公式有所恐惧的话，可以直接忽略并跳转到相应章节中的“结论”部分。
 
-此外，应该指出的是，有关有向无环图在加密货币领域中的想法已经有一些时日了，比如文献[1,2,3,4]。尤其需要指出的是，文献[2]中提出了一种类似于我们的解决方案。
+此外，应该指出的是，有关有向无环图在加密货币领域中的想法已经有一些时日了，比如文献[^1],[^2],[^3],[^4]。尤其需要指出的是，文献[2]中提出了一种类似于我们的解决方案。
 
 ## 2 权重及相关概念
 
@@ -39,7 +39,7 @@
 
 记$L(t)$为 t 时刻系统中 tips 的总数。当然，大家期望随机变量$L(t)$保持稳定（更精确地说是正递归的）。直观上，$L(t)$应当围绕一个恒定的常数波动，而不是趋于无穷大（这样的话系统中会存在大量未经验证的交易）。
 
-为了分析$L(t)$的稳定性，我们需要一些前提假设。假设λ为交易输入流的速率（泊松分布）；为简单起见，我们假定交易输入流的速率保持恒定。假设所有的设备都大概具有同等的计算能力；并假定系统总交易数为 $N$，其中 $L$ 个未经验证的情形下，一台设备要发送一笔交易所需要的平均时间为$h(L,N)$。首先我们考虑如下的一种策略，即在要发送一笔交易的时候，节点从$L$个 tips 中随机任意选择两个并验证它们。在这种策略下，可以假定不同 tips 的验证到达时间是相互独立的，那么有速率$\lambda/L$（可参考文献[5]中的定理 5.2）。因此，
+为了分析$L(t)$的稳定性，我们需要一些前提假设。假设λ为交易输入流的速率（泊松分布）；为简单起见，我们假定交易输入流的速率保持恒定。假设所有的设备都大概具有同等的计算能力；并假定系统总交易数为 $N$，其中 $L$ 个未经验证的情形下，一台设备要发送一笔交易所需要的平均时间为$h(L,N)$。首先我们考虑如下的一种策略，即在要发送一笔交易的时候，节点从$L$个 tips 中随机任意选择两个并验证它们。在这种策略下，可以假定不同 tips 的验证到达时间是相互独立的，那么有速率$\lambda/L$（可参考文献[^5]中的定理 5.2）。因此，
 ![在h时间内给定tips](media/IOTA白皮书-在h时间内给定tips.png)
 
 这意味着在我们的设备发起交易时，tips 总数所增加的期望值等于
@@ -92,7 +92,7 @@
 在 $t$ 时刻进入系统中的一笔交易通常是基于 $h(t)$ 时刻时系统的状态，来选择两笔交易进行验证。不难得到至少验证一个 tip 的概率是![tip概率](media/IOTA白皮书-tip概率.png)
 。
 
-因此我们可以写下如下的微分方程（类似于文献[5]中的例子 6.4）：
+因此我们可以写下如下的微分方程（类似于文献[^5]中的例子 6.4）：
 ![微分方程](media/IOTA白皮书-微分方程.png)
 
 为了能够使用方程(5)，我们首先需要计算 $K(t)$ 。如何立刻去计算 $K(t)$ 是很困难的，因为在 $t - h$ 时刻的一个 tip 也许在 $t$ 时刻已经不是一个 tip，并且，在新进入的交易验证了这样一个 tip 的情况下，那么验证原来交易的 tips 总量就会增加 1个。现在，根据（1）和（3）可以观察到关键的问题是在 $t - h$ 时刻的一个 tip 在$t$ 时刻仍然保持为 tip 的概率为 $1/2$。因此，在 $t$ 时刻，有 $K(t - h)$ 的一半的“以前”的 tips 仍然保持为 tips，而另一半已经至少被一笔交易所验证。让我们用 A表示（大概）在 $t - h$ 时刻 tips 中的 $K(t - h)/2$ 在 $t$ 时刻仍然保持为 tips 的这些交易的集合，而用 $B$ 表示另外一半已经被验证过的 tips。假定新进入的交易至少验证了集合 $B$ 中一笔交易而没有验证集合 $A$ 中任何交易的概率为$p_1$ ；同时假定同时验证了集合 $A$ 和 集合 $B$ 中的交易的概率为$p_2$ 。显然，$p_1$ 和$p_2$ 分别对应于在新交易到达时，目前“我们”的 tips 增加或者减少 1 的概率。因此，得到一些基本关系式：
@@ -161,11 +161,11 @@ $$
 
 那么现在我们来讨论当最大权重具有上限，比如说上限为 $m$ 的时候，估算攻击成功的概率。
 
-根据上述讨论（同时根据大偏差定理[6]的一般直觉），如果攻击者想要追上主链的话，他仅仅需要发送具有最大许可权重的交易。假设给定的一笔交易在发送后经过$t_0$时间单位后，获得累积权重为$\omega_0$ ，并假设这笔交易的调整阶段已经结束，因此其累积权重以 $\lambda\omega$ 的速度线性增长。现在，攻击者试图对这笔交易进行双花攻击；因为在第一笔交易发送的时候，他私下秘密准备了双花交易，并且开始生成其他具有权重为 $m$ 的交易来验证这笔双花交易。如果在一定的时候（在商家决定接受第一笔合法的交易之后），攻击者的 Subtangle 的权重要大于合法交易Subtangle 的权重的话，双花攻击就会成功。如果上述条件不成立的话，那么双花交易就不会被其他交易验证（因为合法的交易将获得更多的累积权重并且所有新的 tips 都会间接验证这笔交易），因此双花交易也就成为了孤立交易了。
+根据上述讨论（同时根据大偏差定理[^6]的一般直觉），如果攻击者想要追上主链的话，他仅仅需要发送具有最大许可权重的交易。假设给定的一笔交易在发送后经过$t_0$时间单位后，获得累积权重为$\omega_0$ ，并假设这笔交易的调整阶段已经结束，因此其累积权重以 $\lambda\omega$ 的速度线性增长。现在，攻击者试图对这笔交易进行双花攻击；因为在第一笔交易发送的时候，他私下秘密准备了双花交易，并且开始生成其他具有权重为 $m$ 的交易来验证这笔双花交易。如果在一定的时候（在商家决定接受第一笔合法的交易之后），攻击者的 Subtangle 的权重要大于合法交易Subtangle 的权重的话，双花攻击就会成功。如果上述条件不成立的话，那么双花交易就不会被其他交易验证（因为合法的交易将获得更多的累积权重并且所有新的 tips 都会间接验证这笔交易），因此双花交易也就成为了孤立交易了。
 
 如前所述，假定 $\mu$ 为攻击者的计算能力。假定$G_1,G_2,G_3,{\ldots}$是以$\mu/m$为参数（期望值为$m/\mu$ ）的独立同分布的指数分布变量，并记$V_k = \frac{\mu}{m}G_k, k>=1$ 。很显然，$V_1,V_2,V_3,{\ldots}$是以 1 为参数的独立同分布的指数分布的变量。
 
-假设在$t_0$ 时刻商家决定接受交易（记住这时这笔交易的累积权重为$w_0$）。让我们来估算一下攻击者成功完成双花攻击的概率。记$M(\theta) = (1-\theta)^{-1}$是以 1 为参数的指数分布的随机变量的生成函数的矩（参考文献[7]中 7.7节）。对于$\alpha \in (0, 1)$，于是有如下公式成立（除了一般教科书[6]之外，同时可参考文献[7]中 8.5 节的引
+假设在$t_0$ 时刻商家决定接受交易（记住这时这笔交易的累积权重为$w_0$）。让我们来估算一下攻击者成功完成双花攻击的概率。记$M(\theta) = (1-\theta)^{-1}$是以 1 为参数的指数分布的随机变量的生成函数的矩（参考文献[^7]中 7.7节）。对于$\alpha \in (0, 1)$，于是有如下公式成立（除了一般教科书[^6]之外，同时可参考文献[^7]中 8.5 节的引
 理 5.2，尽管其中并没有解释为什么不等式是那样的，事实上是一个近似等式）:
 
 $$P[\sum_{k=1}^nV_k <= \alpha n] \approx exp(-n\psi(\alpha)) \text{(11)}$$
@@ -236,7 +236,7 @@ $$P[\sum_{k=1}^nV_k <= \alpha n] \approx exp(-n\psi(\alpha)) \text{(11)}$$
 
 ### 4.3 抵抗量子计算
 
-众所周知（今天仍然只是假设），足够大的量子计算机在解决那些只能通过猜测结果并重复进行检验的问题时具有极高的效率。为生成一个比特币区块而寻找 nonce 就是这类问题中的一个很好的例子。在目前，平均来说必须查找$2^68$ 个nonces 从而找到一个合适的哈希值来生成区块。众所周知（例如文献[8]）量子计算机在解决上述类似的问题时的复杂度为$\bigodot(\sqrt{N})$，而对于常规经典计算机其复杂度则是$\bigodot(N)$。因此量子计算机在比特币挖矿方面相比常规的矿机具有$\sqrt{2^68}=2^34=170$亿倍的效率。同时，请注意，如果区块链在面对哈希运算能力增加的时候不能够同时增加挖矿难度的话，那么这就将导致大量孤快的增加。
+众所周知（今天仍然只是假设），足够大的量子计算机在解决那些只能通过猜测结果并重复进行检验的问题时具有极高的效率。为生成一个比特币区块而寻找 nonce 就是这类问题中的一个很好的例子。在目前，平均来说必须查找$2^68$ 个nonces 从而找到一个合适的哈希值来生成区块。众所周知（例如文献[^8]）量子计算机在解决上述类似的问题时的复杂度为$\bigodot(\sqrt{N})$，而对于常规经典计算机其复杂度则是$\bigodot(N)$。因此量子计算机在比特币挖矿方面相比常规的矿机具有$\sqrt{2^68}=2^34=170$亿倍的效率。同时，请注意，如果区块链在面对哈希运算能力增加的时候不能够同时增加挖矿难度的话，那么这就将导致大量孤快的增加。
 
 基于相同的原因，我们可以看到上述所描述的“大权重”攻击在量子计算机上同样具有更高的效率。然而，前面所讲的权重上限设置（如第 4 节所建议的）因为如下的理由，可以有效地抵抗量子计算机的攻击。在 IOTA 系统中，为发送交易而需要寻找合适的哈希时，其寻找的 nonces 空间并不是很大，大概最大仅仅是$3^8$。因此对于一个“理想”的量子计算机来说，其效率的提高也就在$3^4=81$倍这个数量级，这相对来说是可以接受的（记住$\bigodot(\sqrt{N})$也许意味着大概是$10\sqrt{N}$）。而且，在 IOTA 的算法中，发送交易的时候，寻找 nonce 所需要的时间不比其他任务所需要的时间多很多，而后面提到的那部分任务相对来说是更容易抵抗量子计算机的。
 
@@ -244,27 +244,18 @@ $$P[\sum_{k=1}^nV_k <= \alpha n] \approx exp(-n\psi(\alpha)) \text{(11)}$$
 
 ## 参考文献
 
-[1] people on nxtforum.org (2014) DAG, a generalized
-blockchain.h<ttps://nxtforum.org/proof-of-stake-algorithm/dag-a-generalized-blockchai
-n/(registration at nxtforum.org required)>
+[^1]: people on nxtforum.org (2014) DAG, a generalized blockchain.h<ttps://nxtforum.org/proof-of-stake-algorithm/dag-a-generalized-blockchain/(registration at nxtforum.org required)>
 
-[2] Sergio Demian Lerner (2015) DagCoin: a cryptocurrency without blocks.
-<https://bitslog.wordpress.com/2015/09/11/dagcoin/>
+[^2]: Sergio Demian Lerner (2015) DagCoin: a cryptocurrency without blocks. <https://bitslog.wordpress.com/2015/09/11/dagcoin/>
 
-[3] Yonatan Sompolinsky, Aviv Zohar (2013) Accelerating Bitcoin's Transaction
-Processing. Fast Money Grows on Trees, Not Chains.
-<https://eprint.iacr.org/2013/881.pdf>
+[^3]: Yonatan Sompolinsky, Aviv Zohar (2013) Accelerating Bitcoin's Transaction Processing. Fast Money Grows on Trees, Not Chains. <https://eprint.iacr.org/2013/881.pdf>
 
-[4] Yoad Lewenberg, Yonatan Sompolinsky, Aviv Zohar (2015) Breaking free from
-chains: "Secure chainless" protocols for Bitcoin.
-<https://dl.dropboxusercontent.com/u/7426164/Bitcoin/> Bitcoin meetup Chainless.pptx
+[^4]: Yoad Lewenberg, Yonatan Sompolinsky, Aviv Zohar (2015) Breaking free from chains: "Secure chainless" protocols for Bitcoin. <https://dl.dropboxusercontent.com/u/7426164/Bitcoin/> Bitcoin meetup Chainless.pptx
 
-[5] Sheldon M. Ross (2012) Introduction to Probability Models. 10th ed.
+[^5]: Sheldon M. Ross (2012) Introduction to Probability Models. 10th ed.
 
-[6] Amir Dembo, Ofer Zeitouni (2010) Large Deviations Techniques and
-Applications. Springer.
+[^6]: Amir Dembo, Ofer Zeitouni (2010) Large Deviations Techniques and Applications. Springer.
 
-[7] Sheldon M. Ross (2009) A First Course in Probability. 8th ed.
+[^7]: Sheldon M. Ross (2009) A First Course in Probability. 8th ed.
 
-[8] Gilles Brassard, Peter Hyer, Alain Tapp (1998) Quantum cryptanalysis of hash
-and claw-free functions. Lecture Notes in Computer Science 1380, 163-169.
+[^8]: Gilles Brassard, Peter Hyer, Alain Tapp (1998) Quantum cryptanalysis of hash and claw-free functions. Lecture Notes in Computer Science 1380, 163-169.
