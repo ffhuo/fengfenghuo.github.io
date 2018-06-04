@@ -6,6 +6,7 @@ Zilliqa以分片的方式解决当前区块链交易速度的问题，并从根�
 
 ## 特点
 
+- 加密技术：以secp256k1为基础的EC-Schnorr+POW
 - 共识算法：[PoW](../../核心技术/共识算法/共识算法-POW.md)+[PBFT](../../核心技术/共识算法/共识算法-PBFT.md)
 - 分片技术
 
@@ -24,6 +25,7 @@ Zilliqa以分片的方式解决当前区块链交易速度的问题，并从根�
 
 ## 收集资料
 
+- [Zilliqa白皮书](Zilliqa白皮书.md)
 - [Zilliqa设计构思-网络分片](Zilliqa设计构思-网络分片.md)
 - [Zilliqa设计构思-共识机制](Zilliqa设计构思-共识机制.md)
 - [Zilliqa设计构思-使共识更有效](Zilliqa设计构思-使共识更有效.md)

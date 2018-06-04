@@ -21,7 +21,15 @@ NEO 是利用区块链技术和数字身份进行资产数字化，利用智能�
 
 - github：<https://github.com/neo-project>
 
+- dAPPS: <https://neo.org/dapps>
+
 ## 发展路线
+
+- 2014年，由Onchain创始人达鸿飞以AntShares命名推出
+
+- 2017年6月，Antshares更名为NEO，发布智能合约2.0，支持更多编程语言
+
+- 2017年9月，小蚁全球ICO众筹，共筹得6129比特币，市值2500万人民币
 
 ## 分叉链
 
